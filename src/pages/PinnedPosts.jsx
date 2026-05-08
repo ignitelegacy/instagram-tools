@@ -181,11 +181,47 @@ export default function PinnedPosts() {
             <div className="text-center mb-8">
               <div className="sans text-xs tracking-[0.3em] gold-text mb-2">STEP 01</div>
               <h2 className="title text-3xl md:text-4xl" style={{ color: "#2C2418" }}>
-                record your loom
+                record your story
               </h2>
               <p className="sans text-sm mt-3 max-w-lg mx-auto" style={{ color: "#5C4F3D" }}>
-                Open Loom. Press record. Talk through these 10 questions like you're telling a friend over coffee. The longer and messier, the better — Claude will pull the gold.
+                Talk through 10 questions like you're telling a friend over coffee. The longer and messier, the better — Claude will pull the gold.
               </p>
+            </div>
+
+            {/* What is Loom + why */}
+            <div className="cream-card rounded-sm p-8 mb-6">
+              <div className="sans text-xs tracking-[0.3em] gold-text uppercase mb-4">What is Loom and why are we using it?</div>
+              <p className="sans text-sm mb-4" style={{ color: "#3D3328", lineHeight: 1.7 }}>
+                Loom is a free video recording tool — but that's not actually why we're using it. The reason we use Loom is that it <span style={{ color: "#8B6F3F" }}>automatically transcribes everything you say</span>. Word for word. That transcript is what you'll paste in Step 2 for Claude to work from.
+              </p>
+              <p className="sans text-sm mb-6" style={{ color: "#3D3328", lineHeight: 1.7 }}>
+                Instead of filling out a form trying to describe yourself in writing, you just talk. Tell your story out loud, naturally — the way you'd explain it to a friend. Claude takes your actual words and turns them into your three pinned posts. That's why the content sounds like you, not like a template.
+              </p>
+              <div className="sans text-xs tracking-[0.3em] gold-text uppercase mb-3">How to get started with Loom</div>
+              <ol style={{ paddingLeft: 0, listStyle: "none" }}>
+                {[
+                  { n: "01", text: "Go to loom.com and create a free account (takes 30 seconds)." },
+                  { n: "02", text: 'Click "New Recording" in the top right.' },
+                  { n: "03", text: 'Choose "Camera only" — you don\'t need to share your screen.' },
+                  { n: "04", text: "Hit record, talk through the questions below, then stop the recording." },
+                  { n: "05", text: "Loom will process the video and generate a transcript automatically. Then you go to Step 2." },
+                ].map(({ n, text }) => (
+                  <li key={n} className="flex gap-4 mb-3">
+                    <span className="serif text-xl gold-text leading-none" style={{ marginTop: "1px", flexShrink: 0 }}>{n}</span>
+                    <span className="sans text-sm leading-relaxed" style={{ color: "#3D3328" }}>{text}</span>
+                  </li>
+                ))}
+              </ol>
+              <div className="sans text-xs mt-4 pt-4" style={{ borderTop: "1px solid #E8DCC8", color: "#5C4F3D" }}>
+                No Loom account yet?{" "}
+                <a href="https://www.loom.com/signup" target="_blank" rel="noopener noreferrer" style={{ color: "#8B6F3F", textDecoration: "underline" }}>
+                  Create your free account here →
+                </a>
+              </div>
+            </div>
+
+            <div className="text-center mb-6">
+              <div className="sans text-xs tracking-[0.3em] gold-text uppercase">The 10 questions to answer on your recording</div>
             </div>
 
             {questions.map((section, idx) => {
@@ -245,8 +281,29 @@ export default function PinnedPosts() {
                 paste your transcript
               </h2>
               <p className="sans text-sm mt-3 max-w-lg mx-auto" style={{ color: "#5C4F3D" }}>
-                In Loom, click the transcript tab → copy all → paste below. Don't clean it up. Filler words, "ums," tangents — leave them in. They reveal your voice.
+                Don't clean it up. Filler words, "ums," tangents — leave them in. They reveal your voice.
               </p>
+            </div>
+
+            {/* How to pull transcript from Loom */}
+            <div className="cream-card rounded-sm p-8 mb-6">
+              <div className="sans text-xs tracking-[0.3em] gold-text uppercase mb-4">How to get your transcript from Loom</div>
+              <ol style={{ paddingLeft: 0, listStyle: "none" }}>
+                {[
+                  { n: "01", text: "Go to loom.com and open your library. Click on the video you just recorded." },
+                  { n: "02", text: 'On the video page, look for the "Transcript" tab — it\'s usually in the panel on the right side of the video.' },
+                  { n: "03", text: 'Click inside the transcript area, then select all (Cmd+A on Mac, Ctrl+A on Windows) and copy (Cmd+C / Ctrl+C).' },
+                  { n: "04", text: "Paste everything into the box below. That's it." },
+                ].map(({ n, text }) => (
+                  <li key={n} className="flex gap-4 mb-4">
+                    <span className="serif text-xl gold-text leading-none" style={{ marginTop: "1px", flexShrink: 0 }}>{n}</span>
+                    <span className="sans text-sm leading-relaxed" style={{ color: "#3D3328" }}>{text}</span>
+                  </li>
+                ))}
+              </ol>
+              <div className="sans text-xs mt-2 p-3 rounded-sm" style={{ backgroundColor: "#F5EFE6", color: "#5C4F3D", lineHeight: 1.6 }}>
+                Can't find the transcript tab? Loom sometimes takes a minute or two to finish processing after you stop recording. Refresh the page if it hasn't appeared yet.
+              </div>
             </div>
 
             <div className="cream-card rounded-sm p-8 mb-6">
